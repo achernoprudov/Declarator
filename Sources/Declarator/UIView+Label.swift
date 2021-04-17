@@ -1,6 +1,5 @@
 //
-//  File.swift
-//  
+//  UIView+Label.swift
 //
 //  Created by Andrey Chernoprudov on 17.04.2021.
 //
