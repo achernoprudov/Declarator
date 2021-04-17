@@ -6,19 +6,18 @@
 
 import SwiftUI
 
-extension UIView {
-    
-}
 
 struct Declarator_Previews: PreviewProvider {
     struct Presenter: UIViewRepresentable {
-        let title: String
-        let enabled: Bool
-
         func makeUIView(context: Context) -> UIView {
-            let label = UILabel()
-            label.text = "Declarator library"
-            return label
+            return .column(views: [
+                UIView.text("Hello, Declarator")
+                    .font(UIFont.preferredFont(forTextStyle: .title1)),
+                
+                UIView.text("This is simple example of Declarator UI. \n See examples ")
+                    .font(UIFont.preferredFont(forTextStyle: .body))
+            
+            ])
         }
 
         func updateUIView(_ uiView: UIView, context: Context) {
@@ -27,11 +26,9 @@ struct Declarator_Previews: PreviewProvider {
 
     static var previews: some View {
         NavigationView {
-            VStack {
-                Presenter(title: "Super button", enabled: true)
-                    .frame(height: 100, alignment: .center)
-                Presenter(title: "Disabled button", enabled: false)
-                    .frame(height: 100, alignment: .center)
+            List {
+                Presenter()
+                    .frame(height: 200)
             }
             .padding()
             .navigationBarTitle("Title", displayMode: .inline)
